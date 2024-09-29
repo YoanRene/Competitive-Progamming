@@ -74,72 +74,10 @@ ll im(ll a,ll mod_){
     return qp(a,mod_-2);
 }
 
-bool isp(string &s){
-    return s[0]==s[3]&&s[1]==s[2];
-}
-
-void rec(vector<vll> &v,vll &vari){
-    if(vari.size()==3){
-        if((vari[0]+vari[1]+vari[2])%10==3){
-            v.push_back(vari);
-        }
-        return;
-    }
-    rep(0,10){
-        vari.push_back(i);
-        rec(v,vari);
-        vari.pop_back();
-    }
-}
-
 void solve()
-{
-    ll n;
-    cin>>n;
-    vll a(n);
-
-    vll b(n-1);
-    rep(0,n){
-        cin>>a[i];
-    }
-
-    rep(1,n){
-        b[i-1]=gcd(a[i],a[i-1]);
-    }
-
-    ll c=0, k=-4;
-    rep(1,n-1){
-        if(b[i-1]>b[i]){
-            k=i;
-            break;
-        }
-    }
-    vvll b1(3,vll(n-2));
+{   
     
-    rep(0,3){
-        ll t=1;
-        repi(j,1,n-1){
-            if(j==k)continue;
-            b1[i][t-1]=gcd(a[t],a[t-1]);
-            t++;
-        }
-        k++;
-    }
 
-    rep(0,3){
-        bool f=1;
-        repi(j,1,n-2){
-            if(b1[i][j]<b1[i][j-1]){
-                f=0;
-            }
-        }
-        if(f){
-            YES;
-            return;
-        }
-    }
-    NO;
-   
 }
 
 
@@ -152,7 +90,7 @@ int main()
     //freopen("output.txt", "w", stdout);
 
     test = 1;
-    cin >> test;
+    //cin >> test;
     while (test--)
     {
         solve();
